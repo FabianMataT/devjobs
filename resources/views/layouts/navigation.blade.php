@@ -22,6 +22,18 @@
                                 {{ __('Crear Vacante') }}
                             </x-nav-link>
                         </div>
+                        @if (auth()->user()->id === 1)
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <x-nav-link :href="route('salarios.index')" :active="request()->routeIs('salarios.index')">
+                                    {{ __('Salarios') }}
+                                </x-nav-link>
+                            </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
+                                    {{ __('Categorias') }}
+                                </x-nav-link>
+                            </div>
+                        @endif
                     @endif
                 @endauth
             </div>
@@ -103,6 +115,18 @@
                         {{ __('Crear Vancante') }}
                     </x-responsive-nav-link>
                 </div>
+                @if (auth()->user()->id === 1)
+                    <div class="pt-2 pb-3 space-y-1">
+                        <x-responsive-nav-link :href="route('salarios.index')" :active="request()->routeIs('salarios.index')">
+                            {{ __('Salarios') }}
+                        </x-responsive-nav-link>
+                    </div>
+                    <div class="pt-2 pb-3 space-y-1">
+                        <x-responsive-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
+                            {{ __('Categorias') }}
+                        </x-responsive-nav-link>
+                    </div>
+                @endif
                 <div class="flex gap-2 items-center p-3">
                     <a class="w-7 h-7 bg-gray-500 hover:bg-gray-600 rounded-full text-white flex flex-col justify-center items-center text-sm font-bold" href="{{route('notificaciones')}}">
                         {{ auth()->user()->unreadNotifications->count() }}

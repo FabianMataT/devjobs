@@ -22,7 +22,7 @@
                                 {{ __('Crear Vacante') }}
                             </x-nav-link>
                         </div>
-                        @if (auth()->user()->id === 1)
+                        @if (auth()->user()->email === "fabianmatat.1@gmail.com")
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <x-nav-link :href="route('salarios.index')" :active="request()->routeIs('salarios.index')">
                                     {{ __('Salarios') }}
